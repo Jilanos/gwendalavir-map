@@ -29,6 +29,7 @@ final/vector/**
 !working/**/.gitkeep
 !generated/**/.gitkeep
 !final/**/.gitkeep
+layers/**/exports/
 
 # Système et éditeurs
 .DS_Store
