@@ -1,14 +1,26 @@
 ## prod_001_faithful_hd_map_poster_pipeline - Faithful HD Map Poster Pipeline
 > Date: 2026-08-29
-> Status: Proposed
+> Status: Settled
 > Related request: `req_000_deliver_a_faithful_high_definition_map_production_pipeline`
-> Related backlog: `item_001_harden_source_selection_and_master_map_validation`, `item_002_extract_and_validate_canonical_geometry_layers`, `item_003_build_verified_landmark_and_typography_data`, `item_004_define_constrained_artistic_layer_generation`, `item_005_recompose_authoritative_poster_and_prepare_print_exports`
+> Related backlog: `item_001_harden_source_selection_and_master_map_validation`
 > Related task: `task_001_orchestrate_faithful_hd_map_poster_pipeline`
 > Related architecture: (none yet)
 > Reminder: Update status, linked refs, scope, decisions, success signals, and open questions when you edit this doc.
+> Indicators reviewed: 2026-08-29 20:20:44
 
 # Overview
 A reproducible production system for transforming official map scans into a faithful, stylized, high-definition print poster.
+
+```mermaid
+flowchart LR
+  source[Immutable official scans] --> master[Validated master map]
+  master --> layers[Canonical layers and masks]
+  layers --> style[Constrained artistic treatment]
+  style --> compose[Deterministic composition]
+  compose --> print[High-resolution print output]
+  master --> labels[Authoritative labels]
+  labels --> compose
+```
 
 # Goals
 - Keep original geography immutable and geometrically authoritative.
@@ -35,5 +47,5 @@ A reproducible production system for transforming official map scans into a fait
 - Context-pack output can be handed to an implementation agent directly.
 
 # References
-- Product back-reference: `req_000_deliver_a_faithful_high_definition_map_production_pipeline`
+- Product back-reference: `item_001_harden_source_selection_and_master_map_validation`
 - Task back-reference: `task_001_orchestrate_faithful_hd_map_poster_pipeline`
