@@ -12,6 +12,18 @@ from PIL import Image, UnidentifiedImageError
 from pipeline_utils import ensure_working_output
 
 
+def json_number(value: object) -> object:
+    """Convertir les nombres Pillow (dont IFDRational) en valeurs JSON."""
+    if isinstance(value, tuple):
+        return [json_number(item) for item in value]
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    try:
+        return float(value)  # Pillow peut retourner un IFDRational pour les TIFF.
+    except (TypeError, ValueError):
+        return str(value)
+
+
 def image_record(path: Path) -> dict[str, object]:
     """Extraire les propriétés utiles à la comparaison d'une image."""
     with Image.open(path) as image:
@@ -22,8 +34,8 @@ def image_record(path: Path) -> dict[str, object]:
         return {
             "name": path.name, "path": str(path), "format": image.format,
             "width": width, "height": height, "ratio": width / height,
-            "total_pixels": width * height, "dpi": image.info.get("dpi"),
-            "color_mode": image.mode, "bit_depth": bits,
+            "total_pixels": width * height, "dpi": json_number(image.info.get("dpi")),
+            "color_mode": image.mode, "bit_depth": json_number(bits),
             "file_size_bytes": path.stat().st_size,
             "has_alpha": "A" in image.getbands() or "transparency" in image.info,
         }

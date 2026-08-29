@@ -31,10 +31,18 @@ python3 scripts/create_master.py working/cleaned/map_cleaned.tif --scale 4 \
   --interpolation lanczos --output working/upscaled/master_map.tif
 python3 scripts/compare_images.py working/cleaned/map_cleaned.tif working/aligned/scan_aligned.tif \
   --mode difference --output working/aligned/check_difference.png
+python3 scripts/create_review_report.py \
+  --source source/original/map.jpg --prepared working/cleaned/map_cleaned.tif \
+  --difference working/cleaned/check_difference.png \
+  --master working/upscaled/master_map.tif \
+  --output docs/reports/pipeline-review.html
 ```
 
 Chaque image produite est accompagnée d'un fichier `.meta.json` contenant sa
 source, les paramètres, les dimensions, la date et les SHA256 concernés.
+Le rapport HTML autonome embarque des aperçus des étapes intermédiaires afin de
+permettre une validation visuelle avant toute extraction de couche ou
+stylisation.
 
 1. Préserver l'original dans `source/` sans modification.
 2. Créer des dérivés nettoyés dans `working/cleaned/`, puis alignés dans
