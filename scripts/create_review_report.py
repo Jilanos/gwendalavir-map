@@ -45,9 +45,10 @@ def main() -> int:
     parser.add_argument("--difference", type=Path, required=True)
     parser.add_argument("--master", type=Path, required=True)
     parser.add_argument("--ink-mask", type=Path, help="masque d'encre optionnel à intégrer au rapport")
+    parser.add_argument("--final", type=Path, help="composition finale optionnelle à intégrer au rapport")
     parser.add_argument("--output", type=Path, required=True, help="rapport HTML à écrire sous docs/")
     args = parser.parse_args()
-    artifacts = tuple(path for path in (args.source, args.prepared, args.difference, args.master, args.ink_mask) if path)
+    artifacts = tuple(path for path in (args.source, args.prepared, args.difference, args.master, args.ink_mask, args.final) if path)
     if not all(path.is_file() for path in artifacts):
         parser.error("tous les artefacts d'entrée doivent exister")
     output = args.output.resolve()
@@ -65,6 +66,8 @@ def main() -> int:
     ]
     if args.ink_mask:
         section_list.append(figure("5. Canonical ink mask", "Transparent black ink derived directly from the master map at threshold 230. It preserves every detected source mark and does not classify or redraw geography.", args.ink_mask))
+    if args.final:
+        section_list.append(figure("6. Deterministic poster base", "Generated parchment texture composited beneath the canonical ink mask. The texture is decorative only; all map marks remain from the reference mask.", args.final))
     sections = "\n".join(section_list)
     html = f"""<!doctype html>
 <html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
