@@ -14,6 +14,28 @@ source originale
 → préparation impression
 ```
 
+## Ingestion déterministe et master map
+
+Les commandes suivantes sont exécutées depuis la racine. Elles lisent les
+sources sans les modifier et écrivent uniquement dans `working/`.
+
+```bash
+python3 scripts/inspect_image.py source/ --inventory working/source_inventory.json
+python3 scripts/prepare_source.py source/original/map.jpg \
+  --rotate 0.8 --crop 120 80 2450 3350 --grayscale \
+  --output working/cleaned/map_cleaned.tif
+python3 scripts/align_sources.py working/cleaned/reference.tif working/cleaned/scan.tif \
+  --output working/aligned/scan_aligned.tif \
+  --comparison working/aligned/scan_overlay.png --comparison-mode overlay
+python3 scripts/create_master.py working/cleaned/map_cleaned.tif --scale 4 \
+  --interpolation lanczos --output working/upscaled/master_map.tif
+python3 scripts/compare_images.py working/cleaned/map_cleaned.tif working/aligned/scan_aligned.tif \
+  --mode difference --output working/aligned/check_difference.png
+```
+
+Chaque image produite est accompagnée d'un fichier `.meta.json` contenant sa
+source, les paramètres, les dimensions, la date et les SHA256 concernés.
+
 1. Préserver l'original dans `source/` sans modification.
 2. Créer des dérivés nettoyés dans `working/cleaned/`, puis alignés dans
    `working/aligned/`.

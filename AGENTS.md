@@ -1,6 +1,9 @@
 # Règles permanentes
 
-- Ne jamais modifier une source originale.
+- Ne jamais modifier, déplacer ou écraser un fichier situé dans `source/` : ces
+  originaux sont immuables.
+- Les scripts d'ingestion ne lisent `source/` qu'en lecture seule et écrivent
+  toutes leurs sorties sous `working/`.
 - Travailler dans `working/`, `layers/`, `generated/` ou `final/`.
 - Préférer des scripts reproductibles aux modifications manuelles.
 - Conserver les étapes intermédiaires importantes.

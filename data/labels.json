@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "description": "Noms définitifs posés séparément de toute génération d'image. Les coordonnées sont exprimées dans le repère de la master map.",
-  "coordinate_system": "master_map_pixels",
+  "description": "Noms définitifs posés séparément de toute génération d'image. Les coordonnées sont normalisées dans le repère de la master map.",
+  "coordinate_system": "normalized_master_map_top_left",
   "fields": {
     "text": "Nom exact à composer.",
     "place_type": "Type de lieu ou de libellé.",
-    "x_y": "Coordonnées x et y sur la master map.",
+    "x_y": "Coordonnées normalisées x et y dans [0,1] sur la master map.",
     "angle_degrees": "Angle du texte en degrés.",
     "relative_size": "Taille relative du texte.",
     "font_or_style": "Police ou style de composition.",

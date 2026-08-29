@@ -18,6 +18,8 @@ working/**/*.tif
 working/**/*.tiff
 working/**/*.jpg
 working/**/*.jpeg
+working/source_inventory.json
+working/**/*.meta.json
 generated/experiments/**
 generated/selected/**
 final/raster/**

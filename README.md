@@ -46,11 +46,13 @@ python3 -m pip install -r requirements.txt
 ## Commandes principales
 
 ```bash
-python3 scripts/inspect_image.py chemin/vers/image.png
-python3 scripts/create_master.py source/original/carte.png working/master.tiff
-python3 scripts/create_master.py source/original/carte.png working/master.tiff \
-  --rotate 0.5 --crop 20,30,2000,1400
+python3 scripts/inspect_image.py source/
+python3 scripts/prepare_source.py source/original/carte.png \
+  --output working/cleaned/carte_cleaned.tiff
+python3 scripts/create_master.py working/cleaned/carte_cleaned.tiff \
+  --scale 4 --interpolation lanczos --output working/upscaled/master.tiff
 ```
 
-`create_master.py` n'applique que des opérations déterministes (rotation, crop,
-conversion). Il ne réalise aucune transformation générative.
+Les scripts n'appliquent que des opérations déterministes. La préparation peut
+effectuer rotation, crop et corrections explicitement demandées ; la master map
+utilise uniquement une interpolation classique, sans transformation générative.
