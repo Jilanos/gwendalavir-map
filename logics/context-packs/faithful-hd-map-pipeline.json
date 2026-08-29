@@ -1,0 +1,441 @@
+{
+  "budgets": {
+    "max_docs": 56,
+    "max_docs_per_ref": 8
+  },
+  "changed_paths": [],
+  "command": "logics-manager sync context-pack req_000_deliver_a_faithful_high_definition_map_production_pipeline item_001_harden_source_selection_and_master_map_validation item_002_extract_and_validate_canonical_geometry_layers item_003_build_verified_landmark_and_typography_data item_004_define_constrained_artistic_layer_generation item_005_recompose_authoritative_poster_and_prepare_print_exports task_001_orchestrate_faithful_hd_map_poster_pipeline --mode full --profile deep --handoff",
+  "companion_docs": [
+    {
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_001_harden_source_selection_and_master_map_validation",
+          "item_002_extract_and_validate_canonical_geometry_layers",
+          "item_003_build_verified_landmark_and_typography_data",
+          "item_004_define_constrained_artistic_layer_generation",
+          "item_005_recompose_authoritative_poster_and_prepare_print_exports"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/product/prod_001_faithful_hd_map_poster_pipeline.md",
+      "ref": "prod_001_faithful_hd_map_poster_pipeline",
+      "sections": {
+        "Goals": [
+          "- Keep original geography immutable and geometrically authoritative.",
+          "- Make every deterministic transformation inspectable and traceable.",
+          "- Use generative tools only for layer-local artistic appearance.",
+          "- Deliver crisp, verified typography and print-ready high-resolution exports."
+        ],
+        "Key product decisions": [
+          "- Use structured input as the source of truth for generated docs.",
+          "- Keep generated write paths local and repo-bounded."
+        ],
+        "Overview": [
+          "A reproducible production system for transforming official map scans into a faithful, stylized, high-definition print poster."
+        ],
+        "References": [
+          "- Product back-reference: `req_000_deliver_a_faithful_high_definition_map_production_pipeline`",
+          "- Task back-reference: `task_001_orchestrate_faithful_hd_map_poster_pipeline`"
+        ]
+      },
+      "status": "Proposed",
+      "title": "Faithful HD Map Poster Pipeline"
+    }
+  ],
+  "docs": [
+    {
+      "ai_context": {
+        "keywords": "deliver, faithful, high, definition, map, production, pipeline",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "request",
+      "linked_refs": {
+        "item": [
+          "item_001_harden_source_selection_and_master_map_validation",
+          "item_002_extract_and_validate_canonical_geometry_layers",
+          "item_003_build_verified_landmark_and_typography_data",
+          "item_004_define_constrained_artistic_layer_generation",
+          "item_005_recompose_authoritative_poster_and_prepare_print_exports"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ]
+      },
+      "path": "logics/request/req_000_deliver_a_faithful_high_definition_map_production_pipeline.md",
+      "ref": "req_000_deliver_a_faithful_high_definition_map_production_pipeline",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1: Official source scans can be inventoried, selected, prepared, aligned, and converted into a traceable master map without modifying source files.",
+          "- AC2: Structural map layers and masks can be extracted or authored from the master map with visual verification against the reference geometry.",
+          "- AC3: Verified landmark and label inventories store exact spelling and normalized coordinates, and final labels are rendered separately from generative imagery.",
+          "- AC4: Artistic generation is constrained to approved layers and masks, with documented preservation constraints and no geometry-changing generation.",
+          "- AC5: Deterministic recomposition produces a reviewable high-resolution poster, reinjects authoritative contours and vector text, and exports print-ready files.",
+          "- AC6: Every generated artifact has provenance, validation evidence, and documented technical or artistic decisions."
+        ],
+        "Needs": [
+          "- Produce a reproducible high-definition poster pipeline from official map scans while preserving the original geography as the absolute source of truth.",
+          "- Separate geometry, artistic styling, and typography so generative tools can only affect appearance and never map structure or final text.",
+          "- Create print-ready high-resolution outputs with complete transformation traceability."
+        ]
+      },
+      "status": "Draft",
+      "title": "Deliver a faithful high-definition map production pipeline"
+    },
+    {
+      "ai_context": {
+        "keywords": "harden, source, selection, master, map, validation",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_001_harden_source_selection_and_master_map_validation"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/backlog/item_001_harden_source_selection_and_master_map_validation.md",
+      "ref": "item_001_harden_source_selection_and_master_map_validation",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1.1: A documented command sequence selects and produces an approved master map from one or more scans.",
+          "- AC1.2: The approved master map has a recorded source hash, dimensions, ratio, transformation metadata, and visual comparison evidence.",
+          "- AC1.3: Automated tests prevent any pipeline output from overwriting source/."
+        ],
+        "Problem": [
+          "- The ingestion baseline exists, but source selection, alignment review, and master-map approval need a documented operational workflow."
+        ]
+      },
+      "status": "Ready",
+      "title": "Harden source selection and master-map validation"
+    },
+    {
+      "ai_context": {
+        "keywords": "extract, validate, canonical, geometry, layers",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_002_extract_and_validate_canonical_geometry_layers"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/backlog/item_002_extract_and_validate_canonical_geometry_layers.md",
+      "ref": "item_002_extract_and_validate_canonical_geometry_layers",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC2.1: Each structural layer has a documented source, coordinate system, output format, and validation image.",
+          "- AC2.2: Layer masks preserve the master-map positions and silhouettes of all constrained geographic elements.",
+          "- AC2.3: No extraction step writes to source/ or changes master-map geometry without explicit review."
+        ],
+        "Problem": [
+          "- The master map must become explicit, reusable geometry rather than an opaque raster before styling can begin."
+        ]
+      },
+      "status": "Ready",
+      "title": "Extract and validate canonical geometry layers"
+    },
+    {
+      "ai_context": {
+        "keywords": "build, verified, landmark, typography, data",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_003_build_verified_landmark_and_typography_data"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/backlog/item_003_build_verified_landmark_and_typography_data.md",
+      "ref": "item_003_build_verified_landmark_and_typography_data",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC3.1: Every final label has exact text, type, normalized coordinate, angle, style, and verification status.",
+          "- AC3.2: Landmark records cover structural cities, mountains, lakes, forests, boundaries, and symbols needed for validation.",
+          "- AC3.3: Final labels are rendered from structured data and never accepted from a generated image."
+        ],
+        "Problem": [
+          "- Place names and symbols require exact spelling and stable positions that image generation cannot reliably provide."
+        ]
+      },
+      "status": "Ready",
+      "title": "Build verified landmark and typography data"
+    },
+    {
+      "ai_context": {
+        "keywords": "define, constrained, artistic, layer, generation",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_004_define_constrained_artistic_layer_generation"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/backlog/item_004_define_constrained_artistic_layer_generation.md",
+      "ref": "item_004_define_constrained_artistic_layer_generation",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC4.1: Every generation request identifies an input reference, layer, mask, freedom level, and explicit preservation constraints.",
+          "- AC4.2: Artistic outputs are accepted only after overlay review confirms constrained geometry was not displaced.",
+          "- AC4.3: Experiments and selected outputs remain traceable to their prompt, mask, and reference."
+        ],
+        "Problem": [
+          "- The project needs an artistic result without allowing a generator to reinterpret the map."
+        ]
+      },
+      "status": "Ready",
+      "title": "Define constrained artistic layer generation"
+    },
+    {
+      "ai_context": {
+        "keywords": "recompose, authoritative, poster, prepare, print, exports",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_005_recompose_authoritative_poster_and_prepare_print_exports"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/backlog/item_005_recompose_authoritative_poster_and_prepare_print_exports.md",
+      "ref": "item_005_recompose_authoritative_poster_and_prepare_print_exports",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC5.1: The composition script can reproduce a review poster from declared inputs and ordering.",
+          "- AC5.2: Final raster output meets an agreed 8,000\u201312,000 pixel width or print-size target while preserving the approved ratio.",
+          "- AC5.3: Print exports include the documented color, DPI, bleed, format, and validation checks appropriate to the selected printer.",
+          "- AC5.4: A final visual comparison proves authoritative contours and labels are retained."
+        ],
+        "Problem": [
+          "- Layered outputs must become a coherent poster while retaining exact contours and authoritative typography."
+        ]
+      },
+      "status": "Ready",
+      "title": "Recompose authoritative poster and prepare print exports"
+    },
+    {
+      "ai_context": {},
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_001_harden_source_selection_and_master_map_validation",
+          "item_002_extract_and_validate_canonical_geometry_layers",
+          "item_003_build_verified_landmark_and_typography_data",
+          "item_004_define_constrained_artistic_layer_generation",
+          "item_005_recompose_authoritative_poster_and_prepare_print_exports"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/product/prod_001_faithful_hd_map_poster_pipeline.md",
+      "ref": "prod_001_faithful_hd_map_poster_pipeline",
+      "schema_version": "1.0",
+      "sections": {},
+      "status": "Proposed",
+      "title": "Faithful HD Map Poster Pipeline"
+    },
+    {
+      "ai_context": {
+        "keywords": "orchestrate, faithful, map, poster, pipeline",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "task",
+      "linked_refs": {
+        "item": [
+          "item_001_harden_source_selection_and_master_map_validation",
+          "item_002_extract_and_validate_canonical_geometry_layers",
+          "item_003_build_verified_landmark_and_typography_data",
+          "item_004_define_constrained_artistic_layer_generation",
+          "item_005_recompose_authoritative_poster_and_prepare_print_exports"
+        ],
+        "prod": [
+          "prod_001_faithful_hd_map_poster_pipeline"
+        ],
+        "req": [
+          "req_000_deliver_a_faithful_high_definition_map_production_pipeline"
+        ],
+        "task": [
+          "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+        ]
+      },
+      "path": "logics/tasks/task_001_orchestrate_faithful_hd_map_poster_pipeline.md",
+      "ref": "task_001_orchestrate_faithful_hd_map_poster_pipeline",
+      "schema_version": "1.0",
+      "sections": {
+        "Context": [
+          "- Orchestrate the scaffolded request chain and keep sibling implementation slices linked."
+        ],
+        "Validation": [
+          "- (no validation recorded yet)"
+        ]
+      },
+      "status": "Ready",
+      "title": "Orchestrate faithful HD map poster pipeline"
+    }
+  ],
+  "estimates": {
+    "char_count": 12715,
+    "companion_doc_count": 1,
+    "doc_count": 8
+  },
+  "generated_at": "2026-08-29T16:12:00Z",
+  "handoff": {
+    "companion_doc_count": 1,
+    "enabled": true,
+    "source_refs": [
+      "req_000_deliver_a_faithful_high_definition_map_production_pipeline",
+      "item_001_harden_source_selection_and_master_map_validation",
+      "item_002_extract_and_validate_canonical_geometry_layers",
+      "item_003_build_verified_landmark_and_typography_data",
+      "item_004_define_constrained_artistic_layer_generation",
+      "item_005_recompose_authoritative_poster_and_prepare_print_exports",
+      "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+    ],
+    "validation_summary_count": 1
+  },
+  "i18n": {
+    "actions": [
+      "Choose the source locale for app-owned user-facing copy.",
+      "Run logics-manager i18n init --source-locale <locale>.",
+      "Route new UI copy through stable semantic keys."
+    ],
+    "applicable": null,
+    "configured": false,
+    "contract_path": "logics/i18n/contract.json",
+    "findings": [],
+    "next_action": "Run logics-manager i18n init --source-locale <locale> for a project that owns user-facing copy.",
+    "ok": true,
+    "state": "absent"
+  },
+  "mode": "full",
+  "profile": "deep",
+  "ref": "req_000_deliver_a_faithful_high_definition_map_production_pipeline,item_001_harden_source_selection_and_master_map_validation,item_002_extract_and_validate_canonical_geometry_layers,item_003_build_verified_landmark_and_typography_data,item_004_define_constrained_artistic_layer_generation,item_005_recompose_authoritative_poster_and_prepare_print_exports,task_001_orchestrate_faithful_hd_map_poster_pipeline",
+  "refs": [
+    "req_000_deliver_a_faithful_high_definition_map_production_pipeline",
+    "item_001_harden_source_selection_and_master_map_validation",
+    "item_002_extract_and_validate_canonical_geometry_layers",
+    "item_003_build_verified_landmark_and_typography_data",
+    "item_004_define_constrained_artistic_layer_generation",
+    "item_005_recompose_authoritative_poster_and_prepare_print_exports",
+    "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+  ],
+  "release": {
+    "blocking_reasons": [
+      "Missing logics/release/contract.json."
+    ],
+    "configured": false,
+    "contract_path": "logics/release/contract.json",
+    "guidance": [
+      "Release readiness must come from project-owned evidence, not conversational memory.",
+      "Use release status or validate before preparing or claiming release readiness.",
+      "Publication-oriented actions are explicit operator actions and are separate from safe read/validate actions."
+    ],
+    "next_action": "Run logics-manager release discover --write, then review and promote logics/release/contract.draft.json to logics/release/contract.json.",
+    "publication_actions": [
+      "GitHub release publication",
+      "external publication"
+    ],
+    "required_gates": [],
+    "safe_actions": [
+      "logics-manager release status",
+      "logics-manager release plan <version>",
+      "logics-manager release validate <version>"
+    ],
+    "state": "not_configured",
+    "target_id": null,
+    "target_version": null,
+    "targets": []
+  },
+  "validation_summary": [
+    {
+      "items": [
+        "- (no validation recorded yet)"
+      ],
+      "path": "logics/tasks/task_001_orchestrate_faithful_hd_map_poster_pipeline.md",
+      "ref": "task_001_orchestrate_faithful_hd_map_poster_pipeline"
+    }
+  ]
+}

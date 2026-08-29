@@ -1,0 +1,183 @@
+{
+  "title": "Deliver a faithful high-definition map production pipeline",
+  "references": [
+    "README.md",
+    "AGENTS.md",
+    "docs/workflow.md",
+    "docs/map-spec.md",
+    "scripts/",
+    "data/labels.json",
+    "data/landmarks.json"
+  ],
+  "request": {
+    "complexity": "High",
+    "theme": "Faithful map production",
+    "needs": [
+      "Produce a reproducible high-definition poster pipeline from official map scans while preserving the original geography as the absolute source of truth.",
+      "Separate geometry, artistic styling, and typography so generative tools can only affect appearance and never map structure or final text.",
+      "Create print-ready high-resolution outputs with complete transformation traceability."
+    ],
+    "context": [
+      "The repository already contains deterministic source inspection, preparation, alignment, comparison, master-map scaling, metadata, and normalized-coordinate utilities.",
+      "All source files are immutable. Pipeline outputs must be reproducible, inspectable, and written outside source/.",
+      "No generative image operation may move, create, delete, or deform coastlines, rivers, relief, forests, settlements, boundaries, or other structural symbols."
+    ],
+    "acceptance_criteria": [
+      "AC1: Official source scans can be inventoried, selected, prepared, aligned, and converted into a traceable master map without modifying source files.",
+      "AC2: Structural map layers and masks can be extracted or authored from the master map with visual verification against the reference geometry.",
+      "AC3: Verified landmark and label inventories store exact spelling and normalized coordinates, and final labels are rendered separately from generative imagery.",
+      "AC4: Artistic generation is constrained to approved layers and masks, with documented preservation constraints and no geometry-changing generation.",
+      "AC5: Deterministic recomposition produces a reviewable high-resolution poster, reinjects authoritative contours and vector text, and exports print-ready files.",
+      "AC6: Every generated artifact has provenance, validation evidence, and documented technical or artistic decisions."
+    ]
+  },
+  "product": {
+    "title": "Faithful HD Map Poster Pipeline",
+    "overview": "A reproducible production system for transforming official map scans into a faithful, stylized, high-definition print poster.",
+    "goals": [
+      "Keep original geography immutable and geometrically authoritative.",
+      "Make every deterministic transformation inspectable and traceable.",
+      "Use generative tools only for layer-local artistic appearance.",
+      "Deliver crisp, verified typography and print-ready high-resolution exports."
+    ],
+    "non_goals": [
+      "Inventing, correcting, or freely interpreting the canonical geography.",
+      "Generating final place names or lettering inside an image-generation model.",
+      "Automatically merging conflicting source editions without human review.",
+      "Producing artwork before a validated master map and layer geometry exist."
+    ]
+  },
+  "backlog_items": [
+    {
+      "title": "Harden source selection and master-map validation",
+      "priority": "High",
+      "complexity": "Medium",
+      "theme": "Reference geometry",
+      "request_acs": ["AC1", "AC6"],
+      "problem": [
+        "The ingestion baseline exists, but source selection, alignment review, and master-map approval need a documented operational workflow."
+      ],
+      "scope_in": [
+        "Review and validate source inventory, deterministic preparation, alignment, comparison, metadata, and master-map outputs.",
+        "Define source-selection and visual-approval criteria, including scan quality, crop, orientation, ratio, and coordinate reference declaration.",
+        "Add regression fixtures and tests for no-source-write guarantees and ratio preservation."
+      ],
+      "scope_out": [
+        "Generative super-resolution, artistic colorization, layer extraction, and poster composition."
+      ],
+      "acceptance_criteria": [
+        "AC1.1: A documented command sequence selects and produces an approved master map from one or more scans.",
+        "AC1.2: The approved master map has a recorded source hash, dimensions, ratio, transformation metadata, and visual comparison evidence.",
+        "AC1.3: Automated tests prevent any pipeline output from overwriting source/."
+      ]
+    },
+    {
+      "title": "Extract and validate canonical geometry layers",
+      "priority": "High",
+      "complexity": "High",
+      "theme": "Cartographic layers",
+      "request_acs": ["AC2", "AC6"],
+      "problem": [
+        "The master map must become explicit, reusable geometry rather than an opaque raster before styling can begin."
+      ],
+      "scope_in": [
+        "Create deterministic or review-assisted extraction workflows for coastlines, rivers, relief, forests, routes, settlements, symbols, and masks.",
+        "Store raster layers in lossless formats and vector geometry where appropriate.",
+        "Create visual overlay/difference checks against the master map and provenance metadata for each layer."
+      ],
+      "scope_out": [
+        "Artistic colorization, decorative assets, final text rendering, and automated map invention."
+      ],
+      "acceptance_criteria": [
+        "AC2.1: Each structural layer has a documented source, coordinate system, output format, and validation image.",
+        "AC2.2: Layer masks preserve the master-map positions and silhouettes of all constrained geographic elements.",
+        "AC2.3: No extraction step writes to source/ or changes master-map geometry without explicit review."
+      ]
+    },
+    {
+      "title": "Build verified landmark and typography data",
+      "priority": "High",
+      "complexity": "Medium",
+      "theme": "Authoritative labels",
+      "request_acs": ["AC3", "AC6"],
+      "problem": [
+        "Place names and symbols require exact spelling and stable positions that image generation cannot reliably provide."
+      ],
+      "scope_in": [
+        "Populate and validate landmark and label inventories from authoritative references.",
+        "Use normalized top-left-origin coordinates, orientation, relative size, style, and verification status.",
+        "Create deterministic SVG or equivalent vector text rendering with review proofs over the master map."
+      ],
+      "scope_out": [
+        "Model-generated text, guessed names, and styling that obscures label legibility."
+      ],
+      "acceptance_criteria": [
+        "AC3.1: Every final label has exact text, type, normalized coordinate, angle, style, and verification status.",
+        "AC3.2: Landmark records cover structural cities, mountains, lakes, forests, boundaries, and symbols needed for validation.",
+        "AC3.3: Final labels are rendered from structured data and never accepted from a generated image."
+      ]
+    },
+    {
+      "title": "Define constrained artistic layer generation",
+      "priority": "Medium",
+      "complexity": "High",
+      "theme": "Controlled stylization",
+      "request_acs": ["AC4", "AC6"],
+      "problem": [
+        "The project needs an artistic result without allowing a generator to reinterpret the map."
+      ],
+      "scope_in": [
+        "Define a style direction for paper, palette, sea, land, relief, vegetation, aging, decorative elements, and realism level.",
+        "Create generation templates referencing the approved image, target layer, mask, allowed freedom, and preservation constraints.",
+        "Define review gates and experiment recording for separate background, land/sea, relief, vegetation, and decoration passes."
+      ],
+      "scope_out": [
+        "Single-pass full-map generation, text generation, or unconstrained geometry changes."
+      ],
+      "acceptance_criteria": [
+        "AC4.1: Every generation request identifies an input reference, layer, mask, freedom level, and explicit preservation constraints.",
+        "AC4.2: Artistic outputs are accepted only after overlay review confirms constrained geometry was not displaced.",
+        "AC4.3: Experiments and selected outputs remain traceable to their prompt, mask, and reference."
+      ]
+    },
+    {
+      "title": "Recompose authoritative poster and prepare print exports",
+      "priority": "High",
+      "complexity": "High",
+      "theme": "Final composition",
+      "request_acs": ["AC5", "AC6"],
+      "problem": [
+        "Layered outputs must become a coherent poster while retaining exact contours and authoritative typography."
+      ],
+      "scope_in": [
+        "Create deterministic composition order for background, land/sea, relief, vegetation, structural contours, decorations, and labels.",
+        "Reinject canonical contours and vector labels after stylization.",
+        "Produce high-resolution raster, print, and vector deliverables with controlled texture/grain and print specifications."
+      ],
+      "scope_out": [
+        "Rewriting geographic data, embedding unverified generated text, or applying geometry-changing final enhancements."
+      ],
+      "acceptance_criteria": [
+        "AC5.1: The composition script can reproduce a review poster from declared inputs and ordering.",
+        "AC5.2: Final raster output meets an agreed 8,000–12,000 pixel width or print-size target while preserving the approved ratio.",
+        "AC5.3: Print exports include the documented color, DPI, bleed, format, and validation checks appropriate to the selected printer.",
+        "AC5.4: A final visual comparison proves authoritative contours and labels are retained."
+      ]
+    }
+  ],
+  "orchestration_task": {
+    "title": "Orchestrate faithful HD map poster pipeline",
+    "plan": [
+      "Audit the existing ingestion baseline and approve a master-map candidate from the best available official scans.",
+      "Extract, validate, and version the canonical geometry layers and masks against the approved master map.",
+      "Build verified landmark and label data, then establish deterministic vector text rendering.",
+      "Define constrained per-layer artistic generation and record reviewable experiments.",
+      "Recompose the approved layers, reinject authoritative contours and labels, and validate high-resolution print exports."
+    ]
+  },
+  "context_pack": {
+    "out": "logics/context-packs/faithful-hd-map-pipeline.json",
+    "mode": "full",
+    "profile": "deep"
+  }
+}
