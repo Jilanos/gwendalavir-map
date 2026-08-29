@@ -21,6 +21,7 @@ working/**/*.jpeg
 working/source_inventory.json
 working/*_inventory.json
 working/**/*.meta.json
+working/exports/
 generated/experiments/**
 generated/selected/**
 final/raster/**
