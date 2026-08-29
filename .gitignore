@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environnements locaux
+.venv/
+venv/
+env/
+.env
+
+# Fichiers de travail lourds et temporaires
+working/**/*.png
+working/**/*.tif
+working/**/*.tiff
+working/**/*.jpg
+working/**/*.jpeg
+generated/experiments/**
+generated/selected/**
+final/raster/**
+final/print/**
+final/vector/**
+!working/**/.gitkeep
+!generated/**/.gitkeep
+!final/**/.gitkeep
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+.idea/
+.vscode/

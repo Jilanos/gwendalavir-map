@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "description": "Repères géographiques structurants. Les coordonnées et géométries sont exprimées dans le repère de la master map.",
+  "coordinate_system": "master_map_pixels",
+  "fields": {
+    "id": "Identifiant stable.",
+    "name": "Nom de référence.",
+    "type": "city, mountain, lake, forest, border ou autre type structurant.",
+    "x_y": "Coordonnées x et y sur la master map.",
+    "geometry": "Géométrie optionnelle associée au repère.",
+    "source_reference": "Source ayant permis la vérification.",
+    "verification_status": "Statut de vérification de la source."
+  },
+  "landmarks": []
+}
