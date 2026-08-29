@@ -15,7 +15,10 @@ from PIL import Image
 def embedded_preview(path: Path, maximum_width: int = 1200) -> tuple[str, tuple[int, int]]:
     """Créer un aperçu PNG embarqué sans modifier le fichier inspecté."""
     with Image.open(path) as source:
-        image = source.convert("RGB")
+        image = source.convert("RGBA")
+        canvas = Image.new("RGBA", image.size, "white")
+        canvas.alpha_composite(image)
+        image = canvas.convert("RGB")
         original_size = image.size
         image.thumbnail((maximum_width, maximum_width * 2), Image.Resampling.LANCZOS)
         buffer = BytesIO()
@@ -41,9 +44,10 @@ def main() -> int:
     parser.add_argument("--prepared", type=Path, required=True)
     parser.add_argument("--difference", type=Path, required=True)
     parser.add_argument("--master", type=Path, required=True)
+    parser.add_argument("--ink-mask", type=Path, help="masque d'encre optionnel à intégrer au rapport")
     parser.add_argument("--output", type=Path, required=True, help="rapport HTML à écrire sous docs/")
     args = parser.parse_args()
-    artifacts = (args.source, args.prepared, args.difference, args.master)
+    artifacts = tuple(path for path in (args.source, args.prepared, args.difference, args.master, args.ink_mask) if path)
     if not all(path.is_file() for path in artifacts):
         parser.error("tous les artefacts d'entrée doivent exister")
     output = args.output.resolve()
@@ -53,12 +57,15 @@ def main() -> int:
     except ValueError:
         parser.error("la sortie du rapport doit être située sous docs/")
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    sections = "\n".join((
+    section_list = [
         figure("1. Original reference", "Official geometric reference, preserved read-only.", args.source),
         figure("2. Prepared reference", "Deterministic grayscale conversion with contrast 1.05; no crop, rotation, denoising, or generative processing.", args.prepared),
         figure("3. Pixel difference", "Difference between the original and the prepared reference. Bright areas show only the explicit grayscale/contrast change.", args.difference),
         figure("4. Master map", "8× Lanczos interpolation of the prepared map: 8,000 px wide, no synthetic details.", args.master),
-    ))
+    ]
+    if args.ink_mask:
+        section_list.append(figure("5. Canonical ink mask", "Transparent black ink derived directly from the master map at threshold 230. It preserves every detected source mark and does not classify or redraw geography.", args.ink_mask))
+    sections = "\n".join(section_list)
     html = f"""<!doctype html>
 <html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 <title>Map pipeline review</title><style>

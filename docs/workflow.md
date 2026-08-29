@@ -29,6 +29,8 @@ python3 scripts/align_sources.py working/cleaned/reference.tif working/cleaned/s
   --comparison working/aligned/scan_overlay.png --comparison-mode overlay
 python3 scripts/create_master.py working/cleaned/map_cleaned.tif --scale 4 \
   --interpolation lanczos --output working/upscaled/master_map.tif
+python3 scripts/extract_ink_mask.py working/upscaled/master_map.tif \
+  --threshold 230 --output layers/masks/canonical_ink_mask.png
 python3 scripts/compare_images.py working/cleaned/map_cleaned.tif working/aligned/scan_aligned.tif \
   --mode difference --output working/aligned/check_difference.png
 python3 scripts/create_review_report.py \

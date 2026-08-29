@@ -1,0 +1,19 @@
+{
+  "source_file": "working/upscaled/gwendalavir_master_8000.tiff",
+  "script": "scripts/extract_ink_mask.py",
+  "parameters": {
+    "threshold": 230,
+    "method": "grayscale_to_transparent_black_alpha"
+  },
+  "dimensions_before": {
+    "width": 8000,
+    "height": 6120
+  },
+  "dimensions_after": {
+    "width": 8000,
+    "height": 6120
+  },
+  "generated_at": "2026-08-29T16:22:58.539036+00:00",
+  "source_sha256": "f71642a6650221e3fe984eec332d87f7d3bb316e7f820f8183cf50aad41069c7",
+  "generated_sha256": "d79f57098bfcc4edee6ebc447d70823846c007bfc3be735d406e7b83dda46314"
+}
