@@ -6,9 +6,19 @@
 > Related task: `task_002_orchestrate_large_format_linework_refinement`
 > Related architecture: (none yet)
 > Reminder: Update status, linked refs, scope, decisions, success signals, and open questions when you edit this doc.
+> Indicators reviewed: 2026-08-30 14:14:33
 
 # Overview
 A constrained finishing pipeline that improves print-scale line clarity and controlled texture while preserving canonical map geometry.
+
+```mermaid
+flowchart LR
+  master[Canonical master] --> diagnose[Print-scale diagnostics]
+  diagnose --> mask[Protected refinement masks]
+  mask --> refine[Deterministic line refinement]
+  refine --> review[Overlay and difference review]
+  review --> export[Print derivatives]
+```
 
 # Goals
 - Make soft source marks legible at A2 and larger sizes.

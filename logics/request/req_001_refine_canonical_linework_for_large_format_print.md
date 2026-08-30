@@ -1,7 +1,7 @@
 ## req_001_refine_canonical_linework_for_large_format_print - Refine canonical linework for large-format print
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: Draft
+> Status: Done
 > Understanding: 90%
 > Confidence: 85%
 > Complexity: High
