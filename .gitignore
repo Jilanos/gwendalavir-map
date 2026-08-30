@@ -31,6 +31,8 @@ final/vector/**
 !generated/**/.gitkeep
 !final/**/.gitkeep
 layers/**/exports/
+layers/masks/gwendalavir_canonical_ink_mask_12000.png
+layers/masks/gwendalavir_canonical_ink_mask_12000.png.meta.json
 
 # Système et éditeurs
 .DS_Store

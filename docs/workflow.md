@@ -34,6 +34,12 @@ python3 scripts/extract_ink_mask.py working/upscaled/master_map.tif \
 python3 scripts/compose_poster.py --texture generated/selected/parchment_texture_v1.png \
   --ink-mask layers/masks/canonical_ink_mask.png \
   --output final/raster/poster_base.png --dpi 300
+# Révision print discrète : parchemin moins saturé et encre légèrement renforcée.
+python3 scripts/compose_poster.py --texture generated/selected/parchment_texture_v1.png \
+  --ink-mask layers/masks/canonical_ink_mask_12000.png \
+  --output final/raster/poster_refined_12000.png --dpi 300 \
+  --ink-color '#20170f' --texture-saturation 0.55 --texture-strength 0.58 \
+  --ink-opacity 1.12
 python3 scripts/compare_images.py working/cleaned/map_cleaned.tif working/aligned/scan_aligned.tif \
   --mode difference --output working/aligned/check_difference.png
 python3 scripts/create_review_report.py \

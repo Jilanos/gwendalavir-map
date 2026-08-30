@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 from pipeline_utils import write_metadata
 
@@ -17,10 +17,15 @@ def main() -> int:
     parser.add_argument("--ink-mask", type=Path, required=True, help="masque d'encre canonique RGBA")
     parser.add_argument("--output", type=Path, required=True, help="PNG/TIFF sous final/")
     parser.add_argument("--ink-color", default="#3b2414", help="couleur hexadécimale de l'encre")
+    parser.add_argument("--texture-saturation", type=float, default=1.0, help="saturation de la texture (1 = inchangé)")
+    parser.add_argument("--texture-strength", type=float, default=1.0, help="intensité de la texture sur fond ivoire (1 = inchangé)")
+    parser.add_argument("--ink-opacity", type=float, default=1.0, help="renforcement de l'opacité d'encre (1 = inchangé)")
     parser.add_argument("--dpi", type=int, default=300)
     args = parser.parse_args()
     if not args.texture.is_file() or not args.ink_mask.is_file():
         parser.error("la texture et le masque d'encre doivent exister")
+    if any(value <= 0 for value in (args.texture_saturation, args.texture_strength, args.ink_opacity)):
+        parser.error("les facteurs d'ajustement doivent être strictement positifs")
     output = args.output.resolve()
     final_dir = (Path(__file__).resolve().parents[1] / "final").resolve()
     try:
@@ -37,16 +42,19 @@ def main() -> int:
         parser.error("ink-color doit utiliser le format #RRGGBB")
     with Image.open(args.ink_mask) as ink_source, Image.open(args.texture) as texture_source:
         ink = ink_source.convert("RGBA")
-        texture = texture_source.convert("RGB").resize(ink.size, Image.Resampling.LANCZOS).convert("RGBA")
+        texture_rgb = texture_source.convert("RGB").resize(ink.size, Image.Resampling.LANCZOS)
+        texture_rgb = ImageEnhance.Color(texture_rgb).enhance(args.texture_saturation)
+        neutral_paper = Image.new("RGB", ink.size, (241, 235, 218))
+        texture = Image.blend(neutral_paper, texture_rgb, min(args.texture_strength, 1.0)).convert("RGBA")
         colored_ink = Image.new("RGBA", ink.size, (*color, 0))
-        colored_ink.putalpha(ink.getchannel("A"))
+        colored_ink.putalpha(ink.getchannel("A").point(lambda value: min(255, round(value * args.ink_opacity))))
         texture.alpha_composite(colored_ink)
         output.parent.mkdir(parents=True, exist_ok=True)
         options: dict[str, object] = {"dpi": (args.dpi, args.dpi)}
         if output.suffix.lower() in {".tif", ".tiff"}:
             options["compression"] = "tiff_lzw"
         texture.convert("RGB").save(output, **options)
-    meta = write_metadata(output, source_path=args.ink_mask, script="scripts/compose_poster.py", parameters={"ink_color": args.ink_color, "dpi": args.dpi, "texture_resampling": "lanczos"}, dimensions_before=ink.size, dimensions_after=texture.size, additional_sources=[args.texture])
+    meta = write_metadata(output, source_path=args.ink_mask, script="scripts/compose_poster.py", parameters={"ink_color": args.ink_color, "dpi": args.dpi, "texture_resampling": "lanczos", "texture_saturation": args.texture_saturation, "texture_strength": args.texture_strength, "ink_opacity": args.ink_opacity}, dimensions_before=ink.size, dimensions_after=texture.size, additional_sources=[args.texture])
     print(f"Poster base exported: {output}\nMetadata: {meta}")
     return 0
 
