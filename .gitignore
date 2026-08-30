@@ -33,6 +33,9 @@ final/vector/**
 layers/**/exports/
 layers/masks/gwendalavir_canonical_ink_mask_12000.png
 layers/masks/gwendalavir_canonical_ink_mask_12000.png.meta.json
+layers/masks/gwendalavir_refined_ink_mask_12000.png
+layers/masks/gwendalavir_refined_ink_mask_12000.png.meta.json
+working/diagnostics/
 
 # Système et éditeurs
 .DS_Store

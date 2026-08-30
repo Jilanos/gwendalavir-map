@@ -1,13 +1,14 @@
 ## item_009_add_constrained_local_texture_and_micro_detail - Add constrained local texture and micro-detail
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: Ready
+> Status: In progress
 > Understanding: 90%
 > Confidence: 85%
-> Progress: 0%
+> Progress: 60%
 > Complexity: High
 > Theme: Controlled finishing
 > Reminder: Update status/understanding/confidence/progress and linked request/task references when you edit this doc.
+> Indicators reviewed: 2026-08-30 14:11:05
 
 # AI Context
 - Summary: (unfilled: replace before this doc is used)
