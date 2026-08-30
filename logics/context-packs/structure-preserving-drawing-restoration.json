@@ -1,0 +1,389 @@
+{
+  "budgets": {
+    "max_docs": 48,
+    "max_docs_per_ref": 8
+  },
+  "changed_paths": [],
+  "command": "logics-manager sync context-pack req_002_restore_canonical_drawing_detail_without_geometric_invention item_011_build_layered_restoration_inputs_and_web_verified_label_registry item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain item_014_generate_qa_sheet_and_print_safe_restoration_exports task_003_orchestrate_structure_preserving_drawing_restoration --mode full --profile deep --handoff",
+  "companion_docs": [
+    {
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+          "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+          "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+          "item_014_generate_qa_sheet_and_print_safe_restoration_exports"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/product/prod_003_structure_preserving_drawing_restoration.md",
+      "ref": "prod_003_structure_preserving_drawing_restoration",
+      "sections": {
+        "Goals": [
+          "- Recover readability without uniform black-line conversion.",
+          "- Protect authoritative labels through web-backed spelling verification.",
+          "- Keep restoration reversible, local, and inspectable."
+        ],
+        "Key product decisions": [
+          "- Use structured input as the source of truth for generated docs.",
+          "- Keep generated write paths local and repo-bounded."
+        ],
+        "Overview": [
+          "A local, quantitative restoration pipeline for improving print-scale readability while treating the 12k map as immutable geometry."
+        ],
+        "References": [
+          "- Product back-reference: `req_002_restore_canonical_drawing_detail_without_geometric_invention`",
+          "- Task back-reference: `task_003_orchestrate_structure_preserving_drawing_restoration`"
+        ]
+      },
+      "status": "Proposed",
+      "title": "Structure-Preserving Drawing Restoration"
+    }
+  ],
+  "docs": [
+    {
+      "ai_context": {
+        "keywords": "restore, canonical, drawing, detail, geometric, invention",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "request",
+      "linked_refs": {
+        "item": [
+          "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+          "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+          "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+          "item_014_generate_qa_sheet_and_print_safe_restoration_exports"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ]
+      },
+      "path": "logics/request/req_002_restore_canonical_drawing_detail_without_geometric_invention.md",
+      "ref": "req_002_restore_canonical_drawing_detail_without_geometric_invention",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1: The pipeline creates separate parchment, continuous grayscale ink, text-protection, and structural-detail layers from the 12k master without altering its coordinate system.",
+          "- AC2: Per-block sharpness heatmaps quantify Laplacian variance, contour width, local contrast, and ink density for 256\u2013512 px regions.",
+          "- AC3: Only regions flagged as soft receive local candidate restoration; each candidate is rejected when it exceeds 20% stroke-width growth, loses fine components, adds halos, alters contours, or changes letters.",
+          "- AC4: Text areas receive only conservative deconvolution, contrast, and halo cleanup; no skeletonization, vectorization, generative pixels, or guessed spelling is allowed.",
+          "- AC5: Existing mountains, trees, cliffs, waves, coasts, rivers, and symbols are structure-preserved; optional detail is permitted only in the parchment background as near-invisible print-scale grain.",
+          "- AC6: A QA contact sheet covers 15\u201330 representative regions with original, current 12k, restored, and amplified difference views, alongside provenance and web-label verification evidence."
+        ],
+        "Needs": [
+          "- Restore soft pencil-like drawing marks locally for large-format print without thickening noise or inventing missing geography.",
+          "- Separate parchment, continuous grayscale ink, protected text, and structural illustration before enhancement.",
+          "- Verify every written name against web research and authoritative published references before final rendering."
+        ]
+      },
+      "status": "Draft",
+      "title": "Restore canonical drawing detail without geometric invention"
+    },
+    {
+      "ai_context": {
+        "keywords": "build, layered, restoration, inputs, web, verified, label, registry",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_011_build_layered_restoration_inputs_and_web_verified_label_registry"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/backlog/item_011_build_layered_restoration_inputs_and_web_verified_label_registry.md",
+      "ref": "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1.1: Layers share the 12k coordinate system.",
+          "- AC4.1: Every label records exact spelling and web/published-source verification."
+        ],
+        "Problem": [
+          "- Ink, paper, and text need independent treatment."
+        ]
+      },
+      "status": "Ready",
+      "title": "Build layered restoration inputs and web-verified label registry"
+    },
+    {
+      "ai_context": {
+        "keywords": "implement, local, blur, diagnostics, restoration, candidate, selection",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/backlog/item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection.md",
+      "ref": "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC2.1: Heatmaps record all four specified metrics.",
+          "- AC3.1: Candidate acceptance enforces all quantitative guardrails."
+        ],
+        "Problem": [
+          "- Only genuinely soft blocks should be changed."
+        ]
+      },
+      "status": "Ready",
+      "title": "Implement local blur diagnostics and restoration candidate selection"
+    },
+    {
+      "ai_context": {
+        "keywords": "preserve, illustrated, structures, add, print, scale, paper, grain",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/backlog/item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain.md",
+      "ref": "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC5.1: All optional grain is background-only and nearly invisible in global view."
+        ],
+        "Problem": [
+          "- Illustrated structures must remain canonical while the paper may receive subtle finishing."
+        ]
+      },
+      "status": "Ready",
+      "title": "Preserve illustrated structures and add print-scale paper grain"
+    },
+    {
+      "ai_context": {
+        "keywords": "generate, sheet, print, safe, restoration, exports",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_014_generate_qa_sheet_and_print_safe_restoration_exports"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/backlog/item_014_generate_qa_sheet_and_print_safe_restoration_exports.md",
+      "ref": "item_014_generate_qa_sheet_and_print_safe_restoration_exports",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC6.1: QA output is reviewable before any print candidate is selected."
+        ],
+        "Problem": [
+          "- Approval requires visual and numeric evidence across representative regions."
+        ]
+      },
+      "status": "Ready",
+      "title": "Generate QA sheet and print-safe restoration exports"
+    },
+    {
+      "ai_context": {},
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+          "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+          "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+          "item_014_generate_qa_sheet_and_print_safe_restoration_exports"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/product/prod_003_structure_preserving_drawing_restoration.md",
+      "ref": "prod_003_structure_preserving_drawing_restoration",
+      "schema_version": "1.0",
+      "sections": {},
+      "status": "Proposed",
+      "title": "Structure-Preserving Drawing Restoration"
+    },
+    {
+      "ai_context": {
+        "keywords": "orchestrate, structure, preserving, drawing, restoration",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "task",
+      "linked_refs": {
+        "item": [
+          "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+          "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+          "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+          "item_014_generate_qa_sheet_and_print_safe_restoration_exports"
+        ],
+        "prod": [
+          "prod_003_structure_preserving_drawing_restoration"
+        ],
+        "req": [
+          "req_002_restore_canonical_drawing_detail_without_geometric_invention"
+        ],
+        "task": [
+          "task_003_orchestrate_structure_preserving_drawing_restoration"
+        ]
+      },
+      "path": "logics/tasks/task_003_orchestrate_structure_preserving_drawing_restoration.md",
+      "ref": "task_003_orchestrate_structure_preserving_drawing_restoration",
+      "schema_version": "1.0",
+      "sections": {
+        "Context": [
+          "- Orchestrate the scaffolded request chain and keep sibling implementation slices linked."
+        ],
+        "Validation": [
+          "- (no validation recorded yet)"
+        ]
+      },
+      "status": "Ready",
+      "title": "Orchestrate structure-preserving drawing restoration"
+    }
+  ],
+  "estimates": {
+    "char_count": 10764,
+    "companion_doc_count": 1,
+    "doc_count": 7
+  },
+  "generated_at": "2026-08-30T13:18:47Z",
+  "handoff": {
+    "companion_doc_count": 1,
+    "enabled": true,
+    "source_refs": [
+      "req_002_restore_canonical_drawing_detail_without_geometric_invention",
+      "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+      "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+      "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+      "item_014_generate_qa_sheet_and_print_safe_restoration_exports",
+      "task_003_orchestrate_structure_preserving_drawing_restoration"
+    ],
+    "validation_summary_count": 1
+  },
+  "i18n": {
+    "actions": [
+      "Choose the source locale for app-owned user-facing copy.",
+      "Run logics-manager i18n init --source-locale <locale>.",
+      "Route new UI copy through stable semantic keys."
+    ],
+    "applicable": null,
+    "configured": false,
+    "contract_path": "logics/i18n/contract.json",
+    "findings": [],
+    "next_action": "Run logics-manager i18n init --source-locale <locale> for a project that owns user-facing copy.",
+    "ok": true,
+    "state": "absent"
+  },
+  "mode": "full",
+  "profile": "deep",
+  "ref": "req_002_restore_canonical_drawing_detail_without_geometric_invention,item_011_build_layered_restoration_inputs_and_web_verified_label_registry,item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection,item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain,item_014_generate_qa_sheet_and_print_safe_restoration_exports,task_003_orchestrate_structure_preserving_drawing_restoration",
+  "refs": [
+    "req_002_restore_canonical_drawing_detail_without_geometric_invention",
+    "item_011_build_layered_restoration_inputs_and_web_verified_label_registry",
+    "item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection",
+    "item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain",
+    "item_014_generate_qa_sheet_and_print_safe_restoration_exports",
+    "task_003_orchestrate_structure_preserving_drawing_restoration"
+  ],
+  "release": {
+    "blocking_reasons": [
+      "Missing logics/release/contract.json."
+    ],
+    "configured": false,
+    "contract_path": "logics/release/contract.json",
+    "guidance": [
+      "Release readiness must come from project-owned evidence, not conversational memory.",
+      "Use release status or validate before preparing or claiming release readiness.",
+      "Publication-oriented actions are explicit operator actions and are separate from safe read/validate actions."
+    ],
+    "next_action": "Run logics-manager release discover --write, then review and promote logics/release/contract.draft.json to logics/release/contract.json.",
+    "publication_actions": [
+      "GitHub release publication",
+      "external publication"
+    ],
+    "required_gates": [],
+    "safe_actions": [
+      "logics-manager release status",
+      "logics-manager release plan <version>",
+      "logics-manager release validate <version>"
+    ],
+    "state": "not_configured",
+    "target_id": null,
+    "target_version": null,
+    "targets": []
+  },
+  "validation_summary": [
+    {
+      "items": [
+        "- (no validation recorded yet)"
+      ],
+      "path": "logics/tasks/task_003_orchestrate_structure_preserving_drawing_restoration.md",
+      "ref": "task_003_orchestrate_structure_preserving_drawing_restoration"
+    }
+  ]
+}
