@@ -6,9 +6,19 @@
 > Related task: `task_003_orchestrate_structure_preserving_drawing_restoration`
 > Related architecture: (none yet)
 > Reminder: Update status, linked refs, scope, decisions, success signals, and open questions when you edit this doc.
+> Indicators reviewed: 2026-08-30 15:36:08
 
 # Overview
 A local, quantitative restoration pipeline for improving print-scale readability while treating the 12k map as immutable geometry.
+
+```mermaid
+flowchart LR
+  master[Immutable 12k master] --> layers[Separated ink, text, and parchment layers]
+  layers --> metrics[Local blur metrics and heatmap]
+  metrics --> restore[Accepted local restoration candidates]
+  restore --> qa[QA contact sheets and guardrails]
+  qa --> print[Print exports]
+```
 
 # Goals
 - Recover readability without uniform black-line conversion.

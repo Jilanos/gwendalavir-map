@@ -1,7 +1,7 @@
 ## req_002_restore_canonical_drawing_detail_without_geometric_invention - Restore canonical drawing detail without geometric invention
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: Draft
+> Status: Done
 > Understanding: 90%
 > Confidence: 85%
 > Complexity: High
