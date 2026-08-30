@@ -1,0 +1,124 @@
+{
+  "title": "Refine canonical linework for large-format print",
+  "references": [
+    "docs/reports/refined-print-review.html",
+    "docs/map-spec.md",
+    "docs/workflow.md",
+    "scripts/prepare_source.py",
+    "scripts/extract_ink_mask.py",
+    "scripts/compose_poster.py",
+    "scripts/compare_images.py",
+    "layers/masks/"
+  ],
+  "request": {
+    "complexity": "High",
+    "theme": "Large-format linework refinement",
+    "needs": [
+      "Improve the readability of soft or pencil-like strokes at A2 and larger print sizes without changing canonical geography.",
+      "Apply local, mask-constrained contrast and line refinement so dense regions, mountains, and small labels remain legible from one to two metres.",
+      "Add only controlled decorative texture or detail where it reinforces the existing map, never where it would invent or relocate geographic information."
+    ],
+    "context": [
+      "The current refined print candidate is 12,000 × 9,180 px at 300 dpi and remains a first draft to preserve.",
+      "A canonical ink mask is derived directly from the master map and must remain the geometric authority for all refinements.",
+      "Current visual concern: soft source strokes and pencil-like marks can become visibly blurry at poster scale, especially in dense regions.",
+      "Existing reports, metadata, comparison scripts, and no-source-write safeguards must be reused rather than replaced."
+    ],
+    "acceptance_criteria": [
+      "AC1: The pipeline identifies soft, low-contrast, and high-density regions with reproducible diagnostic outputs at target print resolution.",
+      "AC2: Linework contrast and sharpness can be refined through deterministic, mask-constrained operations with before/after overlays and difference checks.",
+      "AC3: Refinement never moves, removes, redraws, or invents constrained coastlines, rivers, relief placement, settlements, symbols, or canonical labels.",
+      "AC4: Optional textures and micro-details are layer-local, documented, reviewable, and prohibited from introducing map structure or text.",
+      "AC5: The refined poster retains readable authoritative typography and exports print-ready PNG, TIFF, JPEG, and HEIC derivatives with provenance.",
+      "AC6: A review report exposes every refinement pass, mask, parameter set, and visual comparison needed for approval before print."
+    ]
+  },
+  "product": {
+    "title": "Large-Format Linework Refinement",
+    "overview": "A constrained finishing pipeline that improves print-scale line clarity and controlled texture while preserving canonical map geometry.",
+    "goals": [
+      "Make soft source marks legible at A2 and larger sizes.",
+      "Preserve the exact master-map geometry and authoritative lettering.",
+      "Keep every enhancement reversible, parameterized, and visually inspectable.",
+      "Produce print-safe derivatives without replacing the existing first-draft outputs."
+    ],
+    "non_goals": [
+      "Freehand redrawing or generative replacement of geographical features.",
+      "Generating new place names, symbols, coastlines, rivers, or terrain layout.",
+      "Applying global sharpening, denoising, or texture that damages fine labels or line rhythm.",
+      "Deleting or overwriting the current master maps, masks, reports, or poster drafts."
+    ]
+  },
+  "backlog_items": [
+    {
+      "title": "Diagnose print-scale linework weaknesses",
+      "priority": "High",
+      "complexity": "Medium",
+      "theme": "Visual diagnostics",
+      "request_acs": ["AC1", "AC6"],
+      "problem": ["Soft strokes must be located and measured before any refinement can be safely targeted."],
+      "scope_in": ["Create reproducible local-contrast, edge-density, and print-scale preview diagnostics.", "Add annotated review crops for sparse, dense, and label-heavy regions."],
+      "scope_out": ["Changing raster content or applying corrective filters."],
+      "acceptance_criteria": ["AC1.1: Diagnostics identify candidate regions and preserve a link to the exact master-map coordinates.", "AC1.2: The review report includes target-size crops and reproducible generation parameters."]
+    },
+    {
+      "title": "Implement mask-constrained linework refinement",
+      "priority": "High",
+      "complexity": "High",
+      "theme": "Deterministic line recovery",
+      "request_acs": ["AC2", "AC3", "AC6"],
+      "problem": ["A global contrast or sharpening pass would damage delicate text and create harsh artifacts in already clean regions."],
+      "scope_in": ["Implement conservative local contrast, threshold, unsharp-mask, and morphology options behind explicit masks.", "Generate before/after, overlay, and difference evidence for every refinement pass.", "Retain the canonical ink mask as the geometry lock."],
+      "scope_out": ["Unmasked global enhancement, manual tracing without evidence, and generative line redraws."],
+      "acceptance_criteria": ["AC2.1: Each pass takes an explicit input, mask, and parameter set and writes metadata.", "AC2.2: Overlay/difference checks confirm no displacement of constrained geometry.", "AC2.3: The output improves readability in approved regions without degrading unaffected labels or linework."]
+    },
+    {
+      "title": "Separate protected labels from refinable linework",
+      "priority": "High",
+      "complexity": "Medium",
+      "theme": "Typography protection",
+      "request_acs": ["AC3", "AC5"],
+      "problem": ["Small names are sensitive to sharpening and must be protected or reconstructed from authoritative data before print."],
+      "scope_in": ["Build reviewable label-protection masks and extend the normalized label inventory.", "Create a deterministic final-label review/rendering path.", "Define name-by-name proof requirements before final approval."],
+      "scope_out": ["Accepting generated text or guessing unreadable names."],
+      "acceptance_criteria": ["AC3.1: Refinement masks exclude protected text unless a separately approved label-rendering pass is used.", "AC5.1: Final typography has a documented verification workflow and legibility checks at print scale."]
+    },
+    {
+      "title": "Add constrained local texture and micro-detail",
+      "priority": "Medium",
+      "complexity": "High",
+      "theme": "Controlled finishing",
+      "request_acs": ["AC4", "AC6"],
+      "problem": ["The poster may benefit from subtle texture and localized finishing, but added detail must never masquerade as canonical geography."],
+      "scope_in": ["Create optional texture/detail passes only for approved non-structural zones or existing layer masks.", "Record prompts, source references, masks, compositing settings, and review output."],
+      "scope_out": ["Adding terrain, settlements, roads, labels, or any structural symbol through generation."],
+      "acceptance_criteria": ["AC4.1: Every optional detail pass is constrained by a documented mask and a no-structure/no-text rule.", "AC4.2: Review overlays demonstrate that the canonical ink and geometry remain dominant and unchanged."]
+    },
+    {
+      "title": "Validate large-format exports and finishing report",
+      "priority": "High",
+      "complexity": "Medium",
+      "theme": "Print quality assurance",
+      "request_acs": ["AC5", "AC6"],
+      "problem": ["The refined result must be assessed at physical print scale and exported consistently for production."],
+      "scope_in": ["Create 100% print-scale crops, final comparison report, provenance manifests, and PNG/TIFF/JPEG/HEIC exports.", "Document target dimensions, DPI, color handling, and preflight checklist."],
+      "scope_out": ["Printer-specific production or physical proofing not supplied to the repository."],
+      "acceptance_criteria": ["AC5.2: The selected print candidate has verified dimensions, DPI, ratio, and four output formats.", "AC6.1: The HTML review report shows all refinement stages and final approval checks."]
+    }
+  ],
+  "orchestration_task": {
+    "title": "Orchestrate large-format linework refinement",
+    "plan": [
+      "Generate print-scale diagnostics and obtain approval of target regions.",
+      "Implement and validate mask-constrained deterministic linework refinement.",
+      "Protect and verify labels before any finishing reaches the final composition.",
+      "Apply only approved local texture or detail passes, with geometry-lock review evidence.",
+      "Export, compare, and document the selected large-format print candidate."
+    ]
+  },
+  "context_pack": {
+    "out": "logics/context-packs/large-format-linework-refinement.json",
+    "mode": "full",
+    "profile": "deep"
+  }
+}

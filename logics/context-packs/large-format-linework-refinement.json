@@ -1,0 +1,436 @@
+{
+  "budgets": {
+    "max_docs": 56,
+    "max_docs_per_ref": 8
+  },
+  "changed_paths": [],
+  "command": "logics-manager sync context-pack req_001_refine_canonical_linework_for_large_format_print item_006_diagnose_print_scale_linework_weaknesses item_007_implement_mask_constrained_linework_refinement item_008_separate_protected_labels_from_refinable_linework item_009_add_constrained_local_texture_and_micro_detail item_010_validate_large_format_exports_and_finishing_report task_002_orchestrate_large_format_linework_refinement --mode full --profile deep --handoff",
+  "companion_docs": [
+    {
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_006_diagnose_print_scale_linework_weaknesses",
+          "item_007_implement_mask_constrained_linework_refinement",
+          "item_008_separate_protected_labels_from_refinable_linework",
+          "item_009_add_constrained_local_texture_and_micro_detail",
+          "item_010_validate_large_format_exports_and_finishing_report"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/product/prod_002_large_format_linework_refinement.md",
+      "ref": "prod_002_large_format_linework_refinement",
+      "sections": {
+        "Goals": [
+          "- Make soft source marks legible at A2 and larger sizes.",
+          "- Preserve the exact master-map geometry and authoritative lettering.",
+          "- Keep every enhancement reversible, parameterized, and visually inspectable.",
+          "- Produce print-safe derivatives without replacing the existing first-draft outputs."
+        ],
+        "Key product decisions": [
+          "- Use structured input as the source of truth for generated docs.",
+          "- Keep generated write paths local and repo-bounded."
+        ],
+        "Overview": [
+          "A constrained finishing pipeline that improves print-scale line clarity and controlled texture while preserving canonical map geometry."
+        ],
+        "References": [
+          "- Product back-reference: `req_001_refine_canonical_linework_for_large_format_print`",
+          "- Task back-reference: `task_002_orchestrate_large_format_linework_refinement`"
+        ]
+      },
+      "status": "Proposed",
+      "title": "Large-Format Linework Refinement"
+    }
+  ],
+  "docs": [
+    {
+      "ai_context": {
+        "keywords": "refine, canonical, linework, large, format, print",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "request",
+      "linked_refs": {
+        "item": [
+          "item_006_diagnose_print_scale_linework_weaknesses",
+          "item_007_implement_mask_constrained_linework_refinement",
+          "item_008_separate_protected_labels_from_refinable_linework",
+          "item_009_add_constrained_local_texture_and_micro_detail",
+          "item_010_validate_large_format_exports_and_finishing_report"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ]
+      },
+      "path": "logics/request/req_001_refine_canonical_linework_for_large_format_print.md",
+      "ref": "req_001_refine_canonical_linework_for_large_format_print",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1: The pipeline identifies soft, low-contrast, and high-density regions with reproducible diagnostic outputs at target print resolution.",
+          "- AC2: Linework contrast and sharpness can be refined through deterministic, mask-constrained operations with before/after overlays and difference checks.",
+          "- AC3: Refinement never moves, removes, redraws, or invents constrained coastlines, rivers, relief placement, settlements, symbols, or canonical labels.",
+          "- AC4: Optional textures and micro-details are layer-local, documented, reviewable, and prohibited from introducing map structure or text.",
+          "- AC5: The refined poster retains readable authoritative typography and exports print-ready PNG, TIFF, JPEG, and HEIC derivatives with provenance.",
+          "- AC6: A review report exposes every refinement pass, mask, parameter set, and visual comparison needed for approval before print."
+        ],
+        "Needs": [
+          "- Improve the readability of soft or pencil-like strokes at A2 and larger print sizes without changing canonical geography.",
+          "- Apply local, mask-constrained contrast and line refinement so dense regions, mountains, and small labels remain legible from one to two metres.",
+          "- Add only controlled decorative texture or detail where it reinforces the existing map, never where it would invent or relocate geographic information."
+        ]
+      },
+      "status": "Draft",
+      "title": "Refine canonical linework for large-format print"
+    },
+    {
+      "ai_context": {
+        "keywords": "diagnose, print, scale, linework, weaknesses",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_006_diagnose_print_scale_linework_weaknesses"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/backlog/item_006_diagnose_print_scale_linework_weaknesses.md",
+      "ref": "item_006_diagnose_print_scale_linework_weaknesses",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC1.1: Diagnostics identify candidate regions and preserve a link to the exact master-map coordinates.",
+          "- AC1.2: The review report includes target-size crops and reproducible generation parameters."
+        ],
+        "Problem": [
+          "- Soft strokes must be located and measured before any refinement can be safely targeted."
+        ]
+      },
+      "status": "Ready",
+      "title": "Diagnose print-scale linework weaknesses"
+    },
+    {
+      "ai_context": {
+        "keywords": "implement, mask, constrained, linework, refinement",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_007_implement_mask_constrained_linework_refinement"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/backlog/item_007_implement_mask_constrained_linework_refinement.md",
+      "ref": "item_007_implement_mask_constrained_linework_refinement",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC2.1: Each pass takes an explicit input, mask, and parameter set and writes metadata.",
+          "- AC2.2: Overlay/difference checks confirm no displacement of constrained geometry.",
+          "- AC2.3: The output improves readability in approved regions without degrading unaffected labels or linework."
+        ],
+        "Problem": [
+          "- A global contrast or sharpening pass would damage delicate text and create harsh artifacts in already clean regions."
+        ]
+      },
+      "status": "Ready",
+      "title": "Implement mask-constrained linework refinement"
+    },
+    {
+      "ai_context": {
+        "keywords": "separate, protected, labels, refinable, linework",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_008_separate_protected_labels_from_refinable_linework"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/backlog/item_008_separate_protected_labels_from_refinable_linework.md",
+      "ref": "item_008_separate_protected_labels_from_refinable_linework",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC3.1: Refinement masks exclude protected text unless a separately approved label-rendering pass is used.",
+          "- AC5.1: Final typography has a documented verification workflow and legibility checks at print scale."
+        ],
+        "Problem": [
+          "- Small names are sensitive to sharpening and must be protected or reconstructed from authoritative data before print."
+        ]
+      },
+      "status": "Ready",
+      "title": "Separate protected labels from refinable linework"
+    },
+    {
+      "ai_context": {
+        "keywords": "add, constrained, local, texture, micro, detail",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_009_add_constrained_local_texture_and_micro_detail"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/backlog/item_009_add_constrained_local_texture_and_micro_detail.md",
+      "ref": "item_009_add_constrained_local_texture_and_micro_detail",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC4.1: Every optional detail pass is constrained by a documented mask and a no-structure/no-text rule.",
+          "- AC4.2: Review overlays demonstrate that the canonical ink and geometry remain dominant and unchanged."
+        ],
+        "Problem": [
+          "- The poster may benefit from subtle texture and localized finishing, but added detail must never masquerade as canonical geography."
+        ]
+      },
+      "status": "Ready",
+      "title": "Add constrained local texture and micro-detail"
+    },
+    {
+      "ai_context": {
+        "keywords": "validate, large, format, exports, finishing, report",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "backlog",
+      "linked_refs": {
+        "item": [
+          "item_010_validate_large_format_exports_and_finishing_report"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/backlog/item_010_validate_large_format_exports_and_finishing_report.md",
+      "ref": "item_010_validate_large_format_exports_and_finishing_report",
+      "schema_version": "1.0",
+      "sections": {
+        "Acceptance criteria": [
+          "- AC5.2: The selected print candidate has verified dimensions, DPI, ratio, and four output formats.",
+          "- AC6.1: The HTML review report shows all refinement stages and final approval checks."
+        ],
+        "Problem": [
+          "- The refined result must be assessed at physical print scale and exported consistently for production."
+        ]
+      },
+      "status": "Ready",
+      "title": "Validate large-format exports and finishing report"
+    },
+    {
+      "ai_context": {},
+      "kind": "product",
+      "linked_refs": {
+        "item": [
+          "item_006_diagnose_print_scale_linework_weaknesses",
+          "item_007_implement_mask_constrained_linework_refinement",
+          "item_008_separate_protected_labels_from_refinable_linework",
+          "item_009_add_constrained_local_texture_and_micro_detail",
+          "item_010_validate_large_format_exports_and_finishing_report"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/product/prod_002_large_format_linework_refinement.md",
+      "ref": "prod_002_large_format_linework_refinement",
+      "schema_version": "1.0",
+      "sections": {},
+      "status": "Proposed",
+      "title": "Large-Format Linework Refinement"
+    },
+    {
+      "ai_context": {
+        "keywords": "orchestrate, large, format, linework, refinement",
+        "skip when": "(unfilled: replace before this doc is used)",
+        "summary": "(unfilled: replace before this doc is used)",
+        "use when": "(unfilled: replace before this doc is used)"
+      },
+      "kind": "task",
+      "linked_refs": {
+        "item": [
+          "item_006_diagnose_print_scale_linework_weaknesses",
+          "item_007_implement_mask_constrained_linework_refinement",
+          "item_008_separate_protected_labels_from_refinable_linework",
+          "item_009_add_constrained_local_texture_and_micro_detail",
+          "item_010_validate_large_format_exports_and_finishing_report"
+        ],
+        "prod": [
+          "prod_002_large_format_linework_refinement"
+        ],
+        "req": [
+          "req_001_refine_canonical_linework_for_large_format_print"
+        ],
+        "task": [
+          "task_002_orchestrate_large_format_linework_refinement"
+        ]
+      },
+      "path": "logics/tasks/task_002_orchestrate_large_format_linework_refinement.md",
+      "ref": "task_002_orchestrate_large_format_linework_refinement",
+      "schema_version": "1.0",
+      "sections": {
+        "Context": [
+          "- Orchestrate the scaffolded request chain and keep sibling implementation slices linked."
+        ],
+        "Validation": [
+          "- (no validation recorded yet)"
+        ]
+      },
+      "status": "Ready",
+      "title": "Orchestrate large-format linework refinement"
+    }
+  ],
+  "estimates": {
+    "char_count": 11875,
+    "companion_doc_count": 1,
+    "doc_count": 8
+  },
+  "generated_at": "2026-08-30T12:07:28Z",
+  "handoff": {
+    "companion_doc_count": 1,
+    "enabled": true,
+    "source_refs": [
+      "req_001_refine_canonical_linework_for_large_format_print",
+      "item_006_diagnose_print_scale_linework_weaknesses",
+      "item_007_implement_mask_constrained_linework_refinement",
+      "item_008_separate_protected_labels_from_refinable_linework",
+      "item_009_add_constrained_local_texture_and_micro_detail",
+      "item_010_validate_large_format_exports_and_finishing_report",
+      "task_002_orchestrate_large_format_linework_refinement"
+    ],
+    "validation_summary_count": 1
+  },
+  "i18n": {
+    "actions": [
+      "Choose the source locale for app-owned user-facing copy.",
+      "Run logics-manager i18n init --source-locale <locale>.",
+      "Route new UI copy through stable semantic keys."
+    ],
+    "applicable": null,
+    "configured": false,
+    "contract_path": "logics/i18n/contract.json",
+    "findings": [],
+    "next_action": "Run logics-manager i18n init --source-locale <locale> for a project that owns user-facing copy.",
+    "ok": true,
+    "state": "absent"
+  },
+  "mode": "full",
+  "profile": "deep",
+  "ref": "req_001_refine_canonical_linework_for_large_format_print,item_006_diagnose_print_scale_linework_weaknesses,item_007_implement_mask_constrained_linework_refinement,item_008_separate_protected_labels_from_refinable_linework,item_009_add_constrained_local_texture_and_micro_detail,item_010_validate_large_format_exports_and_finishing_report,task_002_orchestrate_large_format_linework_refinement",
+  "refs": [
+    "req_001_refine_canonical_linework_for_large_format_print",
+    "item_006_diagnose_print_scale_linework_weaknesses",
+    "item_007_implement_mask_constrained_linework_refinement",
+    "item_008_separate_protected_labels_from_refinable_linework",
+    "item_009_add_constrained_local_texture_and_micro_detail",
+    "item_010_validate_large_format_exports_and_finishing_report",
+    "task_002_orchestrate_large_format_linework_refinement"
+  ],
+  "release": {
+    "blocking_reasons": [
+      "Missing logics/release/contract.json."
+    ],
+    "configured": false,
+    "contract_path": "logics/release/contract.json",
+    "guidance": [
+      "Release readiness must come from project-owned evidence, not conversational memory.",
+      "Use release status or validate before preparing or claiming release readiness.",
+      "Publication-oriented actions are explicit operator actions and are separate from safe read/validate actions."
+    ],
+    "next_action": "Run logics-manager release discover --write, then review and promote logics/release/contract.draft.json to logics/release/contract.json.",
+    "publication_actions": [
+      "GitHub release publication",
+      "external publication"
+    ],
+    "required_gates": [],
+    "safe_actions": [
+      "logics-manager release status",
+      "logics-manager release plan <version>",
+      "logics-manager release validate <version>"
+    ],
+    "state": "not_configured",
+    "target_id": null,
+    "target_version": null,
+    "targets": []
+  },
+  "validation_summary": [
+    {
+      "items": [
+        "- (no validation recorded yet)"
+      ],
+      "path": "logics/tasks/task_002_orchestrate_large_format_linework_refinement.md",
+      "ref": "task_002_orchestrate_large_format_linework_refinement"
+    }
+  ]
+}
