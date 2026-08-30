@@ -1,14 +1,14 @@
 ## item_007_implement_mask_constrained_linework_refinement - Implement mask-constrained linework refinement
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: In progress
+> Status: Done
 > Understanding: 90%
 > Confidence: 85%
 > Progress: 100%
 > Complexity: High
 > Theme: Deterministic line recovery
 > Reminder: Update status/understanding/confidence/progress and linked request/task references when you edit this doc.
-> Indicators reviewed: 2026-08-30 14:11:05
+> Indicators reviewed: 2026-08-30 15:18:05
 
 # AI Context
 - Summary: (unfilled: replace before this doc is used)
@@ -50,3 +50,9 @@
 # Priority
 - Priority: High
 - Rationale: Set by scaffold input or defaulted for grooming.
+
+# Tasks
+- `task_002_orchestrate_large_format_linework_refinement`
+
+# Notes
+- Task `task_002_orchestrate_large_format_linework_refinement` was finished via `logics-manager flow finish task` on 2026-08-30.

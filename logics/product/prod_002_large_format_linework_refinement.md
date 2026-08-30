@@ -1,12 +1,12 @@
 ## prod_002_large_format_linework_refinement - Large-Format Linework Refinement
 > Date: 2026-08-30
-> Status: Proposed
+> Status: Settled
 > Related request: `req_001_refine_canonical_linework_for_large_format_print`
-> Related backlog: `item_006_diagnose_print_scale_linework_weaknesses`, `item_007_implement_mask_constrained_linework_refinement`, `item_008_separate_protected_labels_from_refinable_linework`, `item_009_add_constrained_local_texture_and_micro_detail`, `item_010_validate_large_format_exports_and_finishing_report`
+> Related backlog: `item_006_diagnose_print_scale_linework_weaknesses`
 > Related task: `task_002_orchestrate_large_format_linework_refinement`
 > Related architecture: (none yet)
 > Reminder: Update status, linked refs, scope, decisions, success signals, and open questions when you edit this doc.
-> Indicators reviewed: 2026-08-30 14:14:33
+> Indicators reviewed: 2026-08-30 15:18:05
 
 # Overview
 A constrained finishing pipeline that improves print-scale line clarity and controlled texture while preserving canonical map geometry.
@@ -45,5 +45,5 @@ flowchart LR
 - Context-pack output can be handed to an implementation agent directly.
 
 # References
-- Product back-reference: `req_001_refine_canonical_linework_for_large_format_print`
+- Product back-reference: `item_006_diagnose_print_scale_linework_weaknesses`
 - Task back-reference: `task_002_orchestrate_large_format_linework_refinement`
