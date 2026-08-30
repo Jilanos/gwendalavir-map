@@ -1,12 +1,12 @@
 ## prod_003_structure_preserving_drawing_restoration - Structure-Preserving Drawing Restoration
 > Date: 2026-08-30
-> Status: Proposed
+> Status: Settled
 > Related request: `req_002_restore_canonical_drawing_detail_without_geometric_invention`
-> Related backlog: `item_011_build_layered_restoration_inputs_and_web_verified_label_registry`, `item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection`, `item_013_preserve_illustrated_structures_and_add_print_scale_paper_grain`, `item_014_generate_qa_sheet_and_print_safe_restoration_exports`
+> Related backlog: `item_011_build_layered_restoration_inputs_and_web_verified_label_registry`
 > Related task: `task_003_orchestrate_structure_preserving_drawing_restoration`
 > Related architecture: (none yet)
 > Reminder: Update status, linked refs, scope, decisions, success signals, and open questions when you edit this doc.
-> Indicators reviewed: 2026-08-30 15:36:08
+> Indicators reviewed: 2026-08-30 15:41:45
 
 # Overview
 A local, quantitative restoration pipeline for improving print-scale readability while treating the 12k map as immutable geometry.
@@ -43,5 +43,5 @@ flowchart LR
 - Context-pack output can be handed to an implementation agent directly.
 
 # References
-- Product back-reference: `req_002_restore_canonical_drawing_detail_without_geometric_invention`
+- Product back-reference: `item_011_build_layered_restoration_inputs_and_web_verified_label_registry`
 - Task back-reference: `task_003_orchestrate_structure_preserving_drawing_restoration`

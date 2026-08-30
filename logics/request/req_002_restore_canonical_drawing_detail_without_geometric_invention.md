@@ -7,6 +7,7 @@
 > Complexity: High
 > Theme: Structure-preserving drawing restoration
 > Reminder: Update status/understanding/confidence and linked backlog/task references when you edit this doc.
+> Indicators reviewed: 2026-08-30 15:41:44
 
 # AI Context
 - Summary: (unfilled: replace before this doc is used)

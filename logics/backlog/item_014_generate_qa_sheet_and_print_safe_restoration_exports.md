@@ -1,14 +1,14 @@
 ## item_014_generate_qa_sheet_and_print_safe_restoration_exports - Generate QA sheet and print-safe restoration exports
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: In progress
+> Status: Done
 > Understanding: 90%
 > Confidence: 85%
 > Progress: 100%
 > Complexity: Medium
 > Theme: Approval evidence
 > Reminder: Update status/understanding/confidence/progress and linked request/task references when you edit this doc.
-> Indicators reviewed: 2026-08-30 15:23:48
+> Indicators reviewed: 2026-08-30 15:41:45
 
 # AI Context
 - Summary: (unfilled: replace before this doc is used)
@@ -44,3 +44,9 @@
 # Priority
 - Priority: High
 - Rationale: Set by scaffold input or defaulted for grooming.
+
+# Tasks
+- `task_003_orchestrate_structure_preserving_drawing_restoration`
+
+# Notes
+- Task `task_003_orchestrate_structure_preserving_drawing_restoration` was finished via `logics-manager flow finish task` on 2026-08-30.
