@@ -1,13 +1,14 @@
 ## item_012_implement_local_blur_diagnostics_and_restoration_candidate_selection - Implement local blur diagnostics and restoration candidate selection
 > From version: 1.0.0
 > Schema version: 1.0
-> Status: Ready
+> Status: In progress
 > Understanding: 90%
 > Confidence: 85%
-> Progress: 0%
+> Progress: 10%
 > Complexity: High
 > Theme: Quantitative restoration
 > Reminder: Update status/understanding/confidence/progress and linked request/task references when you edit this doc.
+> Indicators reviewed: 2026-08-30 15:23:48
 
 # AI Context
 - Summary: (unfilled: replace before this doc is used)
